@@ -1,9 +1,9 @@
 import _ from "lodash";
 
-export const getUserCode = (navigate) => {
+export const getUserCode = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user || !user.sub) {
-    navigate("/login");
+    // navigate("/login");
     return;
   }
   return user.sub;

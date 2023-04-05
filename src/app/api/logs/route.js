@@ -4,7 +4,6 @@ const MongoClient = require("mongodb").MongoClient;
 const client = await MongoClient.connect(
   "mongodb+srv://rbarcelo:rJ5NWXwYcruv89Zk@cluster0.js4pllv.mongodb.net/feels?retryWrites=true&w=majority"
 );
-console.log("Connected to database", client);
 const db = client.db("feels");
 
 export async function GET(request) {

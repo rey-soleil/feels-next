@@ -17,8 +17,8 @@ export default function PastLogs() {
   const [pastLogs, setPastLogs] = useState([]);
 
   async function getPastLogs() {
-    const code = getUserCode(navigate);
-    await fetch(`/logs/code/${code}`, {
+    const code = getUserCode();
+    await fetch(`api/logs?code=${code}`, {
       method: "GET",
     })
       .then((res) => res.json())

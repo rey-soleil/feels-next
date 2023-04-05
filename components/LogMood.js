@@ -18,7 +18,7 @@ export default function LogMood() {
   const [allMoods, setAllMoods] = useState([]);
 
   async function getAllActivitiesAndMoods() {
-    const code = getUserCode(navigate);
+    const code = getUserCode();
     await fetch(`/logs/code/${code}`, {
       method: "GET",
     })
