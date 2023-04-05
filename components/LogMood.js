@@ -55,7 +55,7 @@ export default function LogMood() {
 
   const submitLog = async () => {
     const code = getUserCode();
-    await fetch("/logs", {
+    await fetch("/api/logs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function LogMood() {
     setActivities([]);
     setActivity("");
     toast("Successfully logged mood!");
-    // window.location.reload();
+    window.location.reload();
   };
 
   return (

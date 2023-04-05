@@ -23,3 +23,18 @@ export async function GET(request) {
     .toArray();
   return NextResponse.json(recentLogs);
 }
+
+export async function POST(request) {
+  const { moods, activities, code } = await request.json();
+  console.log({ moods, activities, code });
+
+  const logs = db.collection("logs");
+  logs
+    .insertOne({ moods, activities, code, createdAt: new Date() })
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => console.error(error));
+
+  return NextResponse.json({ moods, activities, code });
+}
