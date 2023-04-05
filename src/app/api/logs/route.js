@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
 
 const MongoClient = require("mongodb").MongoClient;
+const client = await MongoClient.connect(
+  "mongodb+srv://rbarcelo:rJ5NWXwYcruv89Zk@cluster0.js4pllv.mongodb.net/feels?retryWrites=true&w=majority"
+);
+console.log("Connected to database", client);
+const db = client.db("feels");
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get("code");
   console.log(`BE: getting past logs with code ${code}`);
 
-  const client = await MongoClient.connect(
-    "mongodb+srv://rbarcelo:rJ5NWXwYcruv89Zk@cluster0.js4pllv.mongodb.net/feels?retryWrites=true&w=majority"
-  );
-  console.log("Connected to database", client);
-  const db = client.db("feels");
   const logs = db.collection("logs");
   const recentLogs = await logs
     .find({
