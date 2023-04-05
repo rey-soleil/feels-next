@@ -26,8 +26,8 @@ export default function Login() {
               <AutoStoriesIcon />
             </div>
             <p>
-              <i>feels</i> is a web app for logging what you're feeling and what
-              you're doing.
+              <i>feels</i> is a web app for logging what you&apos;re feeling and
+              what you&apos;re doing.
             </p>
           </div>
           <div className="login-info-row">
