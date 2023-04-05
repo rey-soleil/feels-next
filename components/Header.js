@@ -1,18 +1,16 @@
+"use client";
+
 import { Avatar } from "@mui/material";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import NavigationBar from "./NavigationBar";
 
 export default function Header() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  const location = useLocation();
+  const [user, setUser] = useState(null);
 
-  if (location.pathname === "/login") {
-    return (
-      <div className="header header-login">
-        <h1>feels</h1>
-      </div>
-    );
-  }
+  useEffect(() => {
+    setUser(JSON.parse(window.localStorage.getItem("user")));
+  }, []);
 
   return (
     <>
