@@ -3,6 +3,7 @@
 import CustomCard from "components/CustomCard";
 import LogMood from "components/LogMood";
 import PastLogs from "components/PastLogs";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const cards = [
@@ -11,13 +12,17 @@ const cards = [
 ];
 export default function Home() {
   const [user, setUser] = useState({});
+  const router = useRouter();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      router.push("/login");
+    }
     setUser(user);
   }, []);
 
-  return (
+  return user ? (
     <div className="home">
       <h2>Welcome{user.given_name && `, ${user.given_name}`}!</h2>
       <div className="home-content">
@@ -30,5 +35,7 @@ export default function Home() {
         ))}
       </div>
     </div>
+  ) : (
+    <></>
   );
 }
