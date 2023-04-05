@@ -21,6 +21,5 @@ export async function GET(request) {
     })
     .sort({ createdAt: -1 })
     .toArray();
-  console.log({ recentLogs });
   return NextResponse.json(recentLogs);
 }

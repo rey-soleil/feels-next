@@ -10,6 +10,7 @@ export default function Header() {
 
   useEffect(() => {
     setUser(JSON.parse(window.localStorage.getItem("user")));
+    console.log({ window });
   }, []);
 
   return (
