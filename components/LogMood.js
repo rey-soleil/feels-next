@@ -19,7 +19,7 @@ export default function LogMood() {
 
   async function getAllActivitiesAndMoods() {
     const code = getUserCode();
-    await fetch(`/logs/code/${code}`, {
+    await fetch(`api/logs?code=${code}`, {
       method: "GET",
     })
       .then((res) => res.json())
