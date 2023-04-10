@@ -27,10 +27,10 @@ export default function PastLogs() {
     getPastLogs();
   }, []);
 
-  const formatAsString = (createdAt) => {
+  const convertDateToReadableString = (createdAt) => {
     const date = new Date(createdAt);
     return date.toLocaleString(undefined, {
-      // weekday: "short",
+      weekday: "short",
       day: "numeric",
       month: "short",
       // year: "numeric",
@@ -44,7 +44,7 @@ export default function PastLogs() {
         return (
           <div className="logsForASingleDate" key={date}>
             <h4 className="centered">
-              <b>{formatAsString(date)}</b>
+              <b>{convertDateToReadableString(date)}</b>
             </h4>
             <LogsForASingleDate pastLogs={pastLogs} />
           </div>
