@@ -27,7 +27,7 @@ export default function Insights() {
   console.log({ pastLogs });
 
   return (
-    <div className="m-10 p-10">
+    <div className="m-10">
       <CustomCard
         title="Correlations"
         component={<Correlations pastLogs={pastLogs} />}
