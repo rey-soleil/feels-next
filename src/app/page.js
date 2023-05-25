@@ -24,7 +24,9 @@ export default function Home() {
 
   return user ? (
     <div className="home">
-      <h2>Welcome{user.given_name && `, ${user.given_name}`}!</h2>
+      <h2 className="bg-red-500">
+        Welcome{user.given_name && `, ${user.given_name}`}!
+      </h2>
       <div className="home-content">
         {cards.map((card) => (
           <CustomCard
