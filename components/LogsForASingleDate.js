@@ -28,7 +28,7 @@ export default function LogsForASingleDate({ pastLogs }) {
         },
       }}
     >
-      {pastLogs.map(({ createdAt, moods, activities }) => {
+      {pastLogs.map(({ createdAt, moods, activities }, i) => {
         return (
           <TimelineItem key={createdAt}>
             <TimelineOppositeContent color="textSecondary">
@@ -36,11 +36,25 @@ export default function LogsForASingleDate({ pastLogs }) {
             </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot />
-              <TimelineConnector />
+              {i !== pastLogs.length - 1 && <TimelineConnector />}
             </TimelineSeparator>
             <TimelineContent>
               <p>
-                <b>I felt</b> <span className="moods">{moods.join(", ")}</span>
+                <b>I felt</b>{" "}
+                <span className="moods">
+                  {moods.map((mood, i) => (
+                    <>
+                      <a
+                        key={mood}
+                        href={`/moods/${mood}`}
+                        className="hover:underline"
+                      >
+                        {mood}
+                      </a>
+                      <span>{i === moods.length - 1 ? "" : ", "}</span>
+                    </>
+                  ))}
+                </span>
               </p>
               <p>
                 <b>I was</b>{" "}
