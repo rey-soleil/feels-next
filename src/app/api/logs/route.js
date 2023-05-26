@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 
 const MongoClient = require("mongodb").MongoClient;
-const client = await MongoClient.connect(
-  "mongodb+srv://rbarcelo:rJ5NWXwYcruv89Zk@cluster0.js4pllv.mongodb.net/feels?retryWrites=true&w=majority"
-);
+const client = await MongoClient.connect(process.env.MONGODB_URL);
 const db = client.db("feels");
 
 export async function GET(request) {
