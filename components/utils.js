@@ -1,5 +1,15 @@
 import _ from "lodash";
 
+export const convertDateToReadableString = (createdAt) => {
+  const date = new Date(createdAt);
+  return date.toLocaleString(undefined, {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    // year: "numeric",
+  });
+};
+
 export const getUserCode = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user || !user.sub) {
