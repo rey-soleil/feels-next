@@ -4,8 +4,8 @@ import LogsForASingleDate from "./LogsForASingleDate";
 import { convertDateToReadableString } from "./utils";
 
 export default function PastLogs({ logsGroupedByDate }) {
-  console.log({ logsGroupedByDate });
   if (!logsGroupedByDate) return <></>;
+
   return (
     <>
       {Object.keys(logsGroupedByDate).map((date) => {
